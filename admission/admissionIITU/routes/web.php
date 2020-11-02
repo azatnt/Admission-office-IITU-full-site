@@ -26,7 +26,7 @@ Route::get('/reception', function () {
 
 Route::get('/pupils', function () {
     return view('pupils');
-});
+})->name('pupils');
 
 Route::get('/about-us', function () {
     return view('about');
@@ -55,3 +55,20 @@ Route::get('/documents_for_admission_phd', function () {
 Route::get('/admission_for_pupils', function () {
     return view('adm_for_pupils');
 });
+
+Route::get('/contact_pupil', function () {
+    return view('contact_for_pupil');
+});
+
+use App\Http\Controllers\ContactController;
+
+Route::post('/contact_pupil/submit', [ContactController:: class, 'submit'])->name('contact_pupil_form');
+
+Route::get('/admin/inbox', [ContactController::class, 'allMessages'])->name('admin_inbox_url');
+
+
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin_url');
+
+

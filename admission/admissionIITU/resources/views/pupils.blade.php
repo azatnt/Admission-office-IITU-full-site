@@ -14,7 +14,11 @@
     </section>
 
 
-    <section class="choseus-section spad"></section>
+    <section class="choseus-section spad">
+        <div class="container mt-5">
+            @include('includes.messages')
+        </div>
+    </section>
 
 
     <section class="services-section spad">
@@ -36,7 +40,7 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Submission of Documents</h4>
-                        <a href="/submission">Explore</a>
+                        <a href="/submissions">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
@@ -72,7 +76,7 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Contacts</h4>
-                        <a href="#">Explore</a>
+                        <a href="/contact_pupil">Explore</a>
                     </div>
                 </div>
 
