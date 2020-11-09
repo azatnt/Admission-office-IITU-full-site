@@ -365,12 +365,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
                     <div class="col-md-8 inbox_right">
-                        <form action="#" method="GET">
+                        <form action="/search" method="get">
                             <div class="input-group input-group-ind">
-                                <input type="text" name="search" class="form-control1 input-search" placeholder="Search...">
+                                <input type="search" name="search" class="form-control1 input-search" placeholder="Search...">
                                 <span class="input-group-btn">
-										<button class="btn btn-success" type="submit"><i class="fa fa-search icon-ser"></i></button>
-									</span>
+										<button class="btn btn-success" type="submit">Search</button>
+                                </span>
                             </div><!-- Input Group -->
                         </form>
                         <div class="mailbox-content">
@@ -417,6 +417,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="float-right">
 
 
+                                    @include('includes.messages')
+
+                                    <form action="/filter" style="display: flex">
+                                        Start Date:
+                                        <input type="date" name="from_date">
+
+                                        <br>
+                                        <br>
+
+                                        End Date:
+                                        <input type="date" name="to_date">
+
+                                        <br>
+
+                                        <input type="submit">
+                                    </form>
+                                    <br>
+
+
+
                                     <span class="text-muted m-r-sm">Showing 20 of 346 </span>
                                     <div class="btn-group m-r-sm mail-hidden-options" style="display: inline-block;">
                                         <div class="btn-group">
@@ -453,6 +473,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 </div>
                             </div>
+                            <button type="button" style="margin-left: 10px;" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add</button>
+
+
+                            <!-- The Modal -->
+                            <div class="modal fade" id="exampleModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Add contact</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="post" action="{{ route('admin_inbox_create_url') }}">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <label>Name</label>
+                                                    <input type="text" class="form-control" name="name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label> Phone</label>
+                                                    <input type="integer" class="form-control" name="phone">
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Message</label>
+                                                    <input type="text" class="form-control" name="message" >
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button class="btn btn-success" type="submit" >Add</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <table class="table table-fhr">
                                 <tbody>
                                 @foreach($messages as $mes)
@@ -474,9 +534,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             {{$mes->created_at}}
                                         </td>
 
+                                        <td>
+                                            <a href="{{route('admin_inbox_edit_url', $mes->id)}}">
+                                                <button type="button" style="margin-left: 10px; color: white; background-color: #212529" class="btn btn-secondary btn-sm" data-toggle="modal">Edit</button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <form action="{{route('admin_inbox_delete_url', $mes->id)}}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" style="margin-left: 10px;" class="btn btn-danger btn-sm" data-toggle="modal">Delete</button>
+                                            </form>
+                                        </td>
+
                                 </tr>
                                 @endforeach
                                 </tbody>
+
+
+
                             </table>
                         </div>
                     </div>

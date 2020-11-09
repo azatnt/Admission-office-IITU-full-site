@@ -22,4 +22,5 @@ class ContactController extends Controller
         $contact = new Contact();
         return view('admin_inbox', ['messages' => $contact->orderBy('id', 'desc')->get()]);
     }
+
 }
