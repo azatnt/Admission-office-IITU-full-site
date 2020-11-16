@@ -28,6 +28,13 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -38,6 +45,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql&#10;mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -55,7 +63,9 @@
       <workItem from="1604328235710" duration="59000" />
       <workItem from="1604338886789" duration="32000" />
       <workItem from="1604852147849" duration="1021000" />
-      <workItem from="1604907858552" duration="14214000" />
+      <workItem from="1604907858552" duration="14333000" />
+      <workItem from="1604974334596" duration="514000" />
+      <workItem from="1605525286305" duration="8216000" />
     </task>
     <servers />
   </component>
@@ -72,11 +82,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604863819536">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1604863819536" />
+    <state x="543" y="380" key="NewPhpFileDialog" timestamp="1605527252461">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="543" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1605527252461" />
   </component>
 </project>

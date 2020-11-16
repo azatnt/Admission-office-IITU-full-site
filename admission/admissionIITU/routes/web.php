@@ -20,9 +20,7 @@ Route::get('/phd', function () {
     return view('phd');
 });
 
-Route::get('/reception', function () {
-    return view('reception');
-});
+
 
 Route::get('/pupils', function () {
     return view('pupils');
@@ -85,3 +83,13 @@ Route::delete('/admin/inbox/delete/{id}', [AdminController::class, 'delete'])->n
 Route::get('/search', [AdminController::class, 'search']);
 
 Route::get('/filter', [AdminController::class, 'filter']);
+
+Route::get('/admin/receptions', [AdminController::class, 'all_receptions'])->name('admin_receptions_url');
+
+Route::post('/admin/reception', [AdminController::class, 'add_receptions'])->name('admin_reception_create_url');
+
+Route::get('/reception', [AdminController::class, 'all_receptions_customer'])->name('admin_reception_customer_url');
+
+Route::get('/admin/reception/{id}/edit', [AdminController::class, 'edit_reception'])->name('admin_reception_edit_url');
+
+Route::put('/admin/reception/{id}/update', [AdminController::class, 'update_reception'])->name('admin_receptions_update_url');

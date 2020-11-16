@@ -7,6 +7,7 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\Reception;
 
 
 class AdminController extends Controller
@@ -74,5 +75,56 @@ class AdminController extends Controller
         return view('admin_inbox', ['messages'=>$results]);
 
     }
+
+
+    public function all_receptions(){
+        $reception = new Reception();
+        return view('admin_reception', ['receptions' => $reception->orderBy('id', 'desc')->get()]);
+    }
+
+    public function all_receptions_customer(){
+        $reception = new Reception();
+        return view('reception', ['receptions' => $reception->orderBy('faculty', 'asc')->get()]);
+    }
+
+
+    public function add_receptions(){
+        $reception = new Reception();
+        $reception ->faculty = request('faculty');
+        $reception ->full_name = request('full_name');
+        $reception ->phone = request('phone');
+
+        $reception ->save();
+        return redirect()->route('admin_reception_create_url')->with('success', 'Your message is created');
+    }
+
+
+    public function edit_reception($id){
+        $data = Reception::find($id);
+//        echo $data;
+
+        return view('receptions_edit', ['data' => $data]);
+    }
+
+
+    public function update_reception(Request $req, $id){
+
+
+        $data = Reception::find($id);
+        $data ->faculty = $req->input('faculty');
+        $data ->full_name = $req->input('full_name');
+        $data ->phone = $req->input('phone');
+        $data->save();
+//        echo $data;
+        return redirect()->route('admin_receptions_url');
+
+    }
+
+
+//    public function smth($id){
+//        $data = Reception::find($id);
+//        return redirect()->route('admin_reception_url');
+//    }
+
 
 }
