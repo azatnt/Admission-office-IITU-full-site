@@ -158,5 +158,11 @@ class AdminController extends Controller
         return redirect()->route('admin_programs_url')->with('success', 'Your message is created');
     }
 
+    public function smth($id){
+        Reception::find($id)->delete();
+
+        return redirect()->route('admin_receptions_url');
+    }
+
 
 }
