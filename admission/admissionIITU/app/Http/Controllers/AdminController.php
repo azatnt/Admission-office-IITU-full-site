@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 //use GuzzleHttp\Psr7\Request;
+use App\Models\Programs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -95,7 +96,7 @@ class AdminController extends Controller
         $reception ->phone = request('phone');
 
         $reception ->save();
-        return redirect()->route('admin_reception_create_url')->with('success', 'Your message is created');
+        return redirect()->route('admin_receptions_url')->with('success', 'Your message is created');
     }
 
 
@@ -121,10 +122,41 @@ class AdminController extends Controller
     }
 
 
-//    public function smth($id){
-//        $data = Reception::find($id);
-//        return redirect()->route('admin_reception_url');
-//    }
+    public function delete_reception($id){
+        Reception::find($id)->delete();
+
+        return redirect()->route('admin_receptions_url');
+    }
+
+
+
+    public function all_programs(){
+        $programs = Programs::all();
+//        return view('admin_programs', ['programs' => $programs->orderBy('id', 'desc')->get()]);
+        return view('admin_programs', compact('programs', $programs));
+
+    }
+
+
+    public function add_programs(Request $request){
+        $programs = new Programs();
+        $programs ->title = $request->input('title');
+        $programs ->amount = $request->input('amount');
+
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/programs/', $filename);
+
+            $programs->image = $filename;
+        } else {
+            return $request;
+            $programs->image = '';
+        }
+        $programs ->save();
+        return redirect()->route('admin_programs_url')->with('success', 'Your message is created');
+    }
 
 
 }

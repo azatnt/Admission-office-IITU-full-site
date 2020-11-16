@@ -58,8 +58,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li class="active"><a href="index.html"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
 
-                <li><a href="forms.html"><i class="lnr lnr-spell-check"></i> <span>News</span></a></li>
-                <li><a href="{{ route('admin_receptions_url') }}"><i class="lnr lnr-menu"></i> <span>Tables</span></a></li>
+                <li><a href="{{ route('admin_programs_url') }}"><i class="lnr lnr-spell-check"></i> <span>Programs</span></a></li>
+                <li><a href="{{ route('admin_receptions_url') }}"><i class="lnr lnr-menu"></i> <span>Receptions</span></a></li>
                 <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>MailBox</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="{{ route('admin_inbox_url') }}">Inbox</a> </li>

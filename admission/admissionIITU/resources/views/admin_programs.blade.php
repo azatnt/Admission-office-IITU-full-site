@@ -285,20 +285,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="{{ route('admin_reception_create_url') }}">
+                            <form method="post" action="{{ route('admin_programs_create_url') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label>Faculty</label>
-                                    <input type="text" class="form-control" name="faculty">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control" name="title">
                                 </div>
                                 <div class="form-group">
-                                    <label> Full name</label>
-                                    <input type="integer" class="form-control" name="full_name">
+                                    <label> Amount</label>
+                                    <input type="integer" class="form-control" name="amount">
 
                                 </div>
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="text" class="form-control" name="phone" >
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="image" class="custom-file-input">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -314,20 +316,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
             <table class="table table-fhr">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Majors</th>
+                        <th scope="col">Image</th>
+                    </tr>
+                </thead>
                 <tbody>
-                @foreach($receptions as $mes)
+                @foreach($programs as $mes)
                     <tr class="unread checked">
 
-                        <td class="hidden-xs">{{ $mes->faculty }}</td>
+                        <td class="hidden-xs">{{ $mes->title }}</td>
                         <td>
-                            {{$mes->full_name}}
+                            {{$mes->amount}}
                         </td>
                         <td>
-                            {{$mes->phone}}
+                            <img src="{{ asset('uploads/programs/' .$mes->image) }}" alt="image">
                         </td>
-                        <td>
-                            {{$mes->created_at}}
-                        </td>
+
 
                         <td>
                             <a href="{{route('admin_reception_edit_url', $mes->id)}}">

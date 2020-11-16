@@ -93,3 +93,9 @@ Route::get('/reception', [AdminController::class, 'all_receptions_customer'])->n
 Route::get('/admin/reception/{id}/edit', [AdminController::class, 'edit_reception'])->name('admin_reception_edit_url');
 
 Route::put('/admin/reception/{id}/update', [AdminController::class, 'update_reception'])->name('admin_receptions_update_url');
+
+Route::delete('/admin/reception/delete/{id}', [AdminController::class, 'delete_reception'])->name('admin_reception_delete_url');
+
+Route::get('/admin/programs', [AdminController::class, 'all_programs'])->name('admin_programs_url');
+
+Route::post('/admin/programs', [AdminController::class, 'add_programs'])->name('admin_programs_create_url');
