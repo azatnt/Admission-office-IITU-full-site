@@ -99,3 +99,13 @@ Route::delete('/admin/reception/delete/{id}', [AdminController::class, 'delete_r
 Route::get('/admin/programs', [AdminController::class, 'all_programs'])->name('admin_programs_url');
 
 Route::post('/admin/programs', [AdminController::class, 'add_programs'])->name('admin_programs_create_url');
+
+
+
+Route::get('/register', [\App\Http\Controllers\RegistrationController::class, 'create']);
+Route::post('register', [\App\Http\Controllers\RegistrationController::class, 'store']);
+
+
+Route::get('/login', [\App\Http\Controllers\SessionsController::class, 'create']);
+Route::post('/login', [\App\Http\Controllers\SessionsController::class, 'store']);
+Route::get('/logout', [\App\Http\Controllers\SessionsController::class, 'destroy']);

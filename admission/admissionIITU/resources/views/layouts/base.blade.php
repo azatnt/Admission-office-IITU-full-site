@@ -10,6 +10,11 @@
 
 
 <body>
+<style>
+    li {
+        list-style-type: none;
+    }
+</style>
 
 <header class="header-section">
     <div class="container-fluid">
@@ -35,6 +40,21 @@
 
                             </ul>
                         </li>
+                        @if( auth()->check() )
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="#">Hi {{ auth()->user()->name }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Log Out</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register">Register</a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
             </div>
@@ -49,6 +69,7 @@
                         <a href="#"><i class="fa fa-youtube-play"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
                     </div>
+
                 </div>
             </div>
         </div>

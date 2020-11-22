@@ -50,6 +50,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -67,6 +68,13 @@
       <workItem from="1604974334596" duration="514000" />
       <workItem from="1605525286305" duration="13344000" />
       <workItem from="1605551764755" duration="1264000" />
+      <workItem from="1605579535735" duration="1294000" />
+      <workItem from="1605795436356" duration="1047000" />
+      <workItem from="1605797094590" duration="3582000" />
+      <workItem from="1605849439654" duration="20000" />
+      <workItem from="1605857629694" duration="1536000" />
+      <workItem from="1605865656396" duration="944000" />
+      <workItem from="1606050608261" duration="2763000" />
     </task>
     <servers />
   </component>
@@ -98,5 +106,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="543" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1605527252461" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1606053419514">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606053419514" />
   </component>
 </project>
