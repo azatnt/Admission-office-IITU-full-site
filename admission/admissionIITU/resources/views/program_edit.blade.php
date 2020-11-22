@@ -55,26 +55,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="active"><a href="/admin"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
+                <li class="active"><a href="index.html"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
 
-                <li><a href="{{ route('admin_programs_url') }}"><i class="lnr lnr-spell-check"></i> <span>Programs</span></a></li>
-                <li><a href="{{ route('admin_receptions_url') }}"><i class="lnr lnr-menu"></i> <span>Receptions</span></a></li>
+                <li><a href="forms.html"><i class="lnr lnr-spell-check"></i> <span>News</span></a></li>
+                <li><a href="{{ route('admin_reception_create_url') }}"><i class="lnr lnr-menu"></i> <span>Tables</span></a></li>
                 <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>MailBox</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="{{ route('admin_inbox_url') }}">Inbox</a> </li>
                         <li><a href="compose-mail.html">Compose Mail</a></li>
-                    </ul>
-                </li>
-                <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>Pupils</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="{{ route('admin_inbox_url') }}">Admissions Regulations</a> </li>
-                        <li><a href="compose-mail.html">Submissions of Documents</a></li>
-                        <li><a href="compose-mail.html">Open Days</a></li>
-                        <li><a href="compose-mail.html">Educational Magazine</a></li>
-                        <li><a href="compose-mail.html">International olympiad IITU</a></li>
-                        <li><a href="compose-mail.html">Guidebook of Applicant</a></li>
-                        <li><a href="compose-mail.html">Tuition Fees</a></li>
-                        <li><a href="compose-mail.html">Contacts</a></li>
                     </ul>
                 </li>
             </ul>
@@ -281,99 +269,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-        <div class="container" style="margin-top: 100px;">
+        <div class="container" style="margin-top: 90px;">
 
 
-            <button type="button" style="margin-left: 10px;" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add</button>
+            <div class="modal-body">
+                <form method="post" action="{{ route('admin_program_update_url', $program->id)}}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{ method_field('put') }}
+                    {{--        <input type="hidden" name="_method" value="PUT" />--}}
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="title" value="{{$program->title}}">
+                    </div>
+                    <div class="form-group">
+                        <label> Amount</label>
+                        <input type="integer" class="form-control" name="amount" value="{{$program->amount}}">
 
-            <!-- The Modal -->
-            <div class="modal fade" id="exampleModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Add program</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post" action="{{ route('admin_programs_create_url') }}" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <label>Title</label>
-                                    <input type="text" class="form-control" name="title">
-                                </div>
-                                <div class="form-group">
-                                    <label> Amount</label>
-                                    <input type="integer" class="form-control" name="amount">
-
-                                </div>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" name="image" class="custom-file-input">
-                                        <label class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <button class="btn btn-success" type="submit" >Add</button>
-                                </div>
-                            </form>
+                    </div>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" name="image" class="custom-file-input" value="{{$program->image}}">
+                            <label class="custom-file-label">Choose file</label>
                         </div>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit" >Update</button>
+                    </div>
+                </form>
             </div>
-
-
-
-
-            <table class="table table-fhr">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Majors</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Operation</th>
-                        <th scope="col">Operation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach($programs as $mes)
-                    <tr class="unread checked">
-                        <td class="hidden-xs">{{ $mes->id }}</td>
-                        <td class="hidden-xs">{{ $mes->title }}</td>
-                        <td>
-                            {{$mes->amount}}
-                        </td>
-                        <td>
-{{--                            <img style="height: 10%" src="{{ asset('uploads/appsetting/' . $row->image) }}" alt="">--}}
-{{--                            <a href="{{ asset('uploads/programs/' . $mes->image) }}">open</a>--}}
-                            <img style="height: 5%" src="{{ asset('uploads/programs/' . $mes->image) }}" alt="image">
-                        </td>
-
-
-                        <td>
-                            <a href="{{route('admin_program_edit_url', $mes->id)}}">
-                                <button type="button" style="margin-left: 10px; color: white; background-color: #212529" class="btn btn-secondary btn-sm" data-toggle="modal">Edit</button>
-                            </a>
-                        </td>
-                        <td>
-                            <form action="{{route('admin_program_delete_url', $mes->id)}}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" style="margin-left: 10px;" class="btn btn-danger btn-sm" data-toggle="modal">Delete</button>
-                            </form>
-                        </td>
-
-                    </tr>
-                @endforeach
-                </tbody>
-
-
-
-            </table>
-
 
 
         </div>

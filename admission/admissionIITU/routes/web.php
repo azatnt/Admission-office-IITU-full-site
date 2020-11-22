@@ -84,7 +84,7 @@ Route::get('/search', [AdminController::class, 'search']);
 
 Route::get('/filter', [AdminController::class, 'filter']);
 
-Route::get('/admin/receptions', [AdminController::class, 'all_receptions'])->name('admin_receptions_url');
+Route::get('/admin/reception', [AdminController::class, 'all_receptions'])->name('admin_receptions_url');
 
 Route::post('/admin/reception', [AdminController::class, 'add_receptions'])->name('admin_reception_create_url');
 
@@ -100,6 +100,13 @@ Route::get('/admin/programs', [AdminController::class, 'all_programs'])->name('a
 
 Route::post('/admin/programs', [AdminController::class, 'add_programs'])->name('admin_programs_create_url');
 
+Route::get('/admin/program/{id}/edit', [AdminController::class, 'edit_program'])->name('admin_program_edit_url');
+
+Route::put('/admin/program/{id}/update', [AdminController::class, 'update_program'])->name('admin_program_update_url');
+
+Route::delete('/admin/program/delete/{id}', [AdminController::class, 'delete_program'])->name('admin_program_delete_url');
+
+
 
 
 Route::get('/register', [\App\Http\Controllers\RegistrationController::class, 'create']);
@@ -109,3 +116,10 @@ Route::post('register', [\App\Http\Controllers\RegistrationController::class, 's
 Route::get('/login', [\App\Http\Controllers\SessionsController::class, 'create']);
 Route::post('/login', [\App\Http\Controllers\SessionsController::class, 'store']);
 Route::get('/logout', [\App\Http\Controllers\SessionsController::class, 'destroy']);
+
+//use App\Http\Controllers\pdfController;
+
+//Route::get('pdfview',[pdfController::class, 'pdfview']);
+
+Route::get('/admin/pupils/admission', [AdminController::class, 'pupil_admission'])->name('admin_pupil_admission_url');
+

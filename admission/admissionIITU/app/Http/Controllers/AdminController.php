@@ -133,6 +133,7 @@ class AdminController extends Controller
     public function all_programs(){
         $programs = Programs::all();
 //        return view('admin_programs', ['programs' => $programs->orderBy('id', 'desc')->get()]);
+//        return response()->file();
         return view('admin_programs', compact('programs', $programs));
 
     }
@@ -140,12 +141,12 @@ class AdminController extends Controller
 
     public function add_programs(Request $request){
         $programs = new Programs();
-        $programs ->title = $request->input('title');
-        $programs ->amount = $request->input('amount');
+        $programs ->title = request('title');
+        $programs ->amount = request('amount');
 
         if ($request->hasfile('image')) {
             $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('uploads/programs/', $filename);
 
@@ -158,11 +159,42 @@ class AdminController extends Controller
         return redirect()->route('admin_programs_url')->with('success', 'Your message is created');
     }
 
-    public function smth($id){
-        Reception::find($id)->delete();
-
-        return redirect()->route('admin_receptions_url');
+    public function edit_program($id){
+        $program = Programs::find($id);
+        return view('program_edit', ['program' => $program]);
     }
 
+
+    public function update_program(Request $request, $id){
+        $program = Programs::find($id);
+        $program->title = request('title');
+        $program->amount = request('amount');
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/programs/', $filename);
+            $program->image = $filename;
+        }
+
+        $program->save();
+
+        return redirect()->route('admin_programs_url');
+    }
+
+    public function delete_program($id){
+        Programs::find($id)->delete();
+
+        return redirect()->route('admin_programs_url');
+    }
+
+    public function pupil_admission(){
+        $programs = Programs::all();
+//        return view('admin_programs', ['programs' => $programs->orderBy('id', 'desc')->get()]);
+//        return response()->file();
+        return view('admin_programs', compact('programs', $programs));
+
+    }
 
 }

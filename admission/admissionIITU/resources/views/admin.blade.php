@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="active"><a href="index.html"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
+                <li class="active"><a href="/admin"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
 
                 <li><a href="{{ route('admin_programs_url') }}"><i class="lnr lnr-spell-check"></i> <span>Programs</span></a></li>
                 <li><a href="{{ route('admin_receptions_url') }}"><i class="lnr lnr-menu"></i> <span>Receptions</span></a></li>
@@ -64,6 +64,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub-menu-list">
                         <li><a href="{{ route('admin_inbox_url') }}">Inbox</a> </li>
                         <li><a href="compose-mail.html">Compose Mail</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>Pupils</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="{{ route('admin_pupil_admission_url') }}">Admissions Regulations</a> </li>
+                        <li><a href="compose-mail.html">Submissions of Documents</a></li>
+                        <li><a href="compose-mail.html">Open Days</a></li>
+                        <li><a href="compose-mail.html">Educational Magazine</a></li>
+                        <li><a href="compose-mail.html">International olympiad IITU</a></li>
+                        <li><a href="compose-mail.html">Guidebook of Applicant</a></li>
+                        <li><a href="compose-mail.html">Tuition Fees</a></li>
+                        <li><a href="compose-mail.html">Contacts</a></li>
                     </ul>
                 </li>
             </ul>
