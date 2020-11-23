@@ -34,9 +34,7 @@ Route::get('/schedule', function () {
     return view('schedule');
 });
 
-Route::get('/submission', function () {
-    return view('submission');
-});
+
 
 Route::get('/educational_program_bachelor', function () {
     return view('edu_prog_bach');
@@ -49,10 +47,18 @@ Route::get('/documents_to_download_master', function () {
 Route::get('/documents_for_admission_phd', function () {
     return view('doc_for_admission_phd');
 });
+use App\Http\Controllers\AdminController;
 
-Route::get('/admission_for_pupils', function () {
-    return view('adm_for_pupils');
-});
+Route::get('/admission_for_pupils', [AdminController::class, 'admission_customer']);
+Route::get('/submission', [AdminController::class, 'submission_customer']);
+Route::get('/olympiad', [AdminController::class, 'olympiad_customer']);
+Route::get('/guidebook', [AdminController::class, 'guidebook_customer']);
+Route::get('/tuition_fee', [AdminController::class, 'tuition_customer']);
+Route::get('/open_days', [AdminController::class, 'open_days_customer']);
+Route::get('/magazine', [AdminController::class, 'magazine_customer']);
+
+
+
 
 Route::get('/contact_pupil', function () {
     return view('contact_for_pupil');
@@ -64,7 +70,6 @@ Route::post('/contact_pupil/submit', [ContactController:: class, 'submit'])->nam
 
 Route::get('/admin/inbox', [ContactController::class, 'allMessages'])->name('admin_inbox_url');
 
-use App\Http\Controllers\AdminController;
 Route::post('/admin/inbox', [AdminController::class, 'store'])->name('admin_inbox_create_url');
 
 //Route::resource('admin/inbox', [AdminController::class, 'edit']);
@@ -123,3 +128,28 @@ Route::get('/logout', [\App\Http\Controllers\SessionsController::class, 'destroy
 
 Route::get('/admin/pupils/admission', [AdminController::class, 'pupil_admission'])->name('admin_pupil_admission_url');
 
+Route::post('/admin/pupils/admission', [AdminController::class, 'add_pupils_admission'])->name('admin_pupil_create_url');
+
+Route::get('/admin/pupil/{id}/edit', [AdminController::class, 'edit_pupil_admission'])->name('admin_pupil_edit_url');
+
+Route::put('/admin/pupil/{id}/update', [AdminController::class, 'update_pupil_admission'])->name('admin_pupil_update_url');
+
+Route::delete('/admin/pupil/delete/{id}', [AdminController::class, 'delete_pupil_admission'])->name('admin_pupil_delete_url');
+
+
+Route::get('/admin/pupils/open_days', [AdminController::class, 'pupil_open_days'])->name('admin_pupil_open_days_url');
+
+Route::post('/admin/pupils/open_days', [AdminController::class, 'add_pupils_open_days'])->name('admin_pupil_open_days_create_url');
+
+Route::get('/admin/pupils/open_days/{id}/edit', [AdminController::class, 'edit_pupil_open_days'])->name('admin_pupil_open_days_edit_url');
+
+Route::put('/admin/pupil/open_days/{id}/update', [AdminController::class, 'update_pupil_open_days'])->name('admin_pupil_open_day_update_url');
+
+Route::delete('/admin/pupil/open_days/delete/{id}', [AdminController::class, 'delete_pupil_open_days'])->name('admin_pupil_open_days_delete_url');
+
+
+Route::get('/admin/pupils/magazine', [AdminController::class, 'pupil_magazine'])->name('admin_pupil_magazine_url');
+
+Route::post('/admin/pupils/magazine', [AdminController::class, 'add_pupils_magazine'])->name('admin_pupil_magazine_create_url');
+
+Route::delete('/admin/pupil/open_days/delete/{id}', [AdminController::class, 'delete_pupil_magazine'])->name('admin_pupil_magazine_delete_url');

@@ -40,37 +40,37 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Submission of Documents</h4>
-                        <a href="/submissions">Explore</a>
+                        <a href="/submission">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Open Days</h4>
-                        <a href="#">Explore</a>
+                        <a href="/open_days">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Educational Magazine</h4>
-                        <a href="#">Explore</a>
+                        <a href="/magazine">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>International Olimpiad of IITU</h4>
-                        <a href="#">Explore</a>
+                        <a href="/olympiad">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Guidebook Of Applicant</h4>
-                        <a href="#">Explore</a>
+                        <a href="/guidebook">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Tuition Fees</h4>
-                        <a href="#">Explore</a>
+                        <a href="/tuition_fee">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">

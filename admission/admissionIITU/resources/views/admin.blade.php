@@ -70,8 +70,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub-menu-list">
                         <li><a href="{{ route('admin_pupil_admission_url') }}">Admissions Regulations</a> </li>
                         <li><a href="compose-mail.html">Submissions of Documents</a></li>
-                        <li><a href="compose-mail.html">Open Days</a></li>
-                        <li><a href="compose-mail.html">Educational Magazine</a></li>
+                        <li><a href="/admin/pupils/open_days">Open Days</a></li>
+                        <li><a href="/admin/pupils/magazine">Educational Magazine</a></li>
                         <li><a href="compose-mail.html">International olympiad IITU</a></li>
                         <li><a href="compose-mail.html">Guidebook of Applicant</a></li>
                         <li><a href="compose-mail.html">Tuition Fees</a></li>

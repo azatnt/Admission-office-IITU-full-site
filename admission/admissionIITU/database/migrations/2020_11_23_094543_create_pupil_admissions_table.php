@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminPupilsTable extends Migration
+class CreatePupilAdmissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateAdminPupilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_pupils', function (Blueprint $table) {
+        Schema::create('pupil_admissions', function (Blueprint $table) {
             $table->id();
-            $table->longText('admission');
-            $table->
+            $table->longText("admission_regulations");
+            $table->longText("submission_documents");
+            $table->longText("olympiad");
+            $table->binary("guidebook");
+            $table->binary("tuition_fee");
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateAdminPupilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_pupils');
+        Schema::dropIfExists('pupil_admissions');
     }
 }

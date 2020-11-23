@@ -5,6 +5,9 @@ use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 //use GuzzleHttp\Psr7\Request;
 use App\Models\Programs;
+use App\Models\PupilAdmission;
+use App\Models\PupilMagazine;
+use App\Models\PupilOpenDay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -190,11 +193,213 @@ class AdminController extends Controller
     }
 
     public function pupil_admission(){
-        $programs = Programs::all();
+        $pupil = PupilAdmission::all();
 //        return view('admin_programs', ['programs' => $programs->orderBy('id', 'desc')->get()]);
 //        return response()->file();
-        return view('admin_programs', compact('programs', $programs));
+        return view('admin_pupils', compact('pupil', $pupil));
 
     }
 
+    public function add_pupils_admission(Request $request){
+        $pupil = new PupilAdmission();
+        $pupil->admission_regulations = request('admission');
+        $pupil->submission_documents = request('submission');
+        $pupil->olympiad = request('olympiad');
+
+        if ($request->hasfile('guidebook')) {
+            $file = $request->file('guidebook');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/pupils/', $filename);
+
+            $pupil->guidebook = $filename;
+        } else {
+            return $request;
+            $pupil->guidebook = '';
+        }
+
+        if ($request->hasfile('tuition_fee')) {
+            $file = $request->file('tuition_fee');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/pupils/', $filename);
+
+            $pupil->tuition_fee = $filename;
+        } else {
+            return $request;
+            $pupil->tuition_fee = '';
+        }
+
+        $pupil ->save();
+        return redirect()->route('admin_pupil_admission_url')->with('success', 'Your message is created');
+    }
+
+    public function edit_pupil_admission($id){
+        $pupil = PupilAdmission::find($id);
+        return view('pupil_admission_edit', ['pupil' => $pupil]);
+    }
+
+
+    public function update_pupil_admission(Request $request, $id){
+        $pupil = PupilAdmission::find($id);
+
+        $pupil->admission_regulations = request('admission');
+        $pupil->submission_documents = request('submission');
+        $pupil->olympiad = request('olympiad');
+
+        if ($request->hasfile('guidebook')) {
+            $file = $request->file('guidebook');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/pupils/', $filename);
+
+            $pupil->guidebook = $filename;
+        } else {
+            return $request;
+            $pupil->guidebook = '';
+        }
+
+        if ($request->hasfile('tuition_fee')) {
+            $file = $request->file('tuition_fee');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/pupils/', $filename);
+
+            $pupil->tuition_fee = $filename;
+        } else {
+            return $request;
+            $pupil->tuition_fee = '';
+        }
+
+        $pupil->save();
+
+        return redirect()->route('admin_pupil_admission_url')->with('success', 'Your message is created');
+
+    }
+
+    public function delete_pupil_admission($id){
+        PupilAdmission::find($id)->delete();
+
+        return redirect()->route('admin_pupil_admission_url');
+    }
+
+    public function admission_customer(){
+        $pupil = PupilAdmission::all();
+        return view('adm_for_pupils', ['pupil' => $pupil]);
+    }
+    public function submission_customer(){
+        $pupil = PupilAdmission::all();
+        return view('submission', ['pupil' => $pupil]);
+    }
+    public function olympiad_customer(){
+        $pupil = PupilAdmission::all();
+        return view('olympiad', ['pupil' => $pupil]);
+    }
+    public function guidebook_customer(){
+        $pupil = PupilAdmission::all();
+        return view('guidebook', ['pupil' => $pupil]);
+    }
+    public function tuition_customer(){
+        $pupil = PupilAdmission::all();
+        return view('tuition', ['pupil' => $pupil]);
+    }
+    public function open_days_customer(){
+        $pupil = PupilOpenDay::all();
+        return view('open_days', ['pupil' => $pupil]);
+    }
+    public function magazine_customer(){
+        $pupil = new PupilMagazine();
+        return view('educational_magazine', ['pupil' => $pupil->orderBy('id', 'desc')->get()]);
+    }
+
+
+
+    public function pupil_open_days(){
+        $pupil = PupilOpenDay::all();
+
+        return view('admin_pupil_open_days', compact('pupil', $pupil));
+
+    }
+
+    public function add_pupils_open_days(){
+        $pupil = new PupilOpenDay();
+        $pupil ->title = request('title');
+        $pupil ->description = request('description');
+        $pupil ->date = request('date');
+
+        $pupil ->save();
+        return redirect()->route('admin_pupil_open_days_url')->with('success', 'Your message is created');
+    }
+
+    public function edit_pupil_open_days($id){
+        $pupil = PupilOpenDay::find($id);
+
+        return view('pupil_open_day_edit', ['pupil' => $pupil]);
+    }
+
+
+    public function update_pupil_open_days(Request $req, $id){
+
+
+        $pupil = PupilOpenDay::find($id);
+        $pupil ->title = $req->input('title');
+        $pupil ->description = $req->input('description');
+        $pupil ->date = $req->input('date');
+        $pupil->save();
+        return redirect()->route('admin_pupil_open_days_url');
+
+    }
+
+
+    public function delete_pupil_open_days($id){
+        PupilOpenDay::find($id)->delete();
+
+        return redirect()->route('admin_pupil_open_days_url');
+    }
+
+
+    public function pupil_magazine(){
+        $pupil = PupilMagazine::all();
+
+        return view('admin_pupil_magazine', compact('pupil', $pupil));
+
+    }
+
+
+    public function add_pupils_magazine(Request $request){
+        $pupil = new PupilMagazine();
+
+        if ($request->hasfile('files')) {
+            $file = $request->file('files');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/pupils/', $filename);
+
+            $pupil->files = $filename;
+        } else {
+            return $request;
+            $pupil->files = '';
+        }
+
+        $pupil->save();
+
+        return redirect()->route('admin_pupil_magazine_url')->with('success', 'Your message is created');
+
+    }
+
+    public function delete_pupil_magazine($id){
+        PupilMagazine::find($id)->delete();
+
+        return redirect()->route('admin_pupil_magazine_url');
+    }
+
 }
+
+
+
+
+
+
+
+
+
