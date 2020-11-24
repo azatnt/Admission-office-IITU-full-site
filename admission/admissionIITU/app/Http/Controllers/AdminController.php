@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
+use App\Models\BachelorAdmission;
+use App\Models\BachelorSubmission;
 use App\Models\Contact;
 //use GuzzleHttp\Psr7\Request;
+use App\Models\ObrazecDogovora;
 use App\Models\Programs;
 use App\Models\PupilAdmission;
 use App\Models\PupilMagazine;
@@ -287,9 +290,17 @@ class AdminController extends Controller
         $pupil = PupilAdmission::all();
         return view('adm_for_pupils', ['pupil' => $pupil]);
     }
+    public function admission_bachelor(){
+        $bachelor = BachelorAdmission::all();
+        return view('adm_for_bachelor',['bachelor'=>$bachelor]);
+    }
     public function submission_customer(){
         $pupil = PupilAdmission::all();
         return view('submission', ['pupil' => $pupil]);
+    }
+    public function submission_bachelor(){
+        $bachelor = BachelorSubmission::all();
+        return view('bachelor_submission',['bachelor' =>$bachelor]);
     }
     public function olympiad_customer(){
         $pupil = PupilAdmission::all();
@@ -303,6 +314,10 @@ class AdminController extends Controller
         $pupil = PupilAdmission::all();
         return view('tuition', ['pupil' => $pupil]);
     }
+    public function tuition_bachelor(){
+        $bachelor = BachelorAdmission::all();
+        return view('bachelor_tuition',['bachelor'=>$bachelor]);
+    }
     public function open_days_customer(){
         $pupil = PupilOpenDay::all();
         return view('open_days', ['pupil' => $pupil]);
@@ -310,6 +325,11 @@ class AdminController extends Controller
     public function magazine_customer(){
         $pupil = new PupilMagazine();
         return view('educational_magazine', ['pupil' => $pupil->orderBy('id', 'desc')->get()]);
+    }
+
+    public function obrazec_dogovora(){
+        $bachelor = new ObrazecDogovora();
+        return view('obrazec_dogovora',['bachelor' => $bachelor->orderBy('id','desc')->get()]);
     }
 
 

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('block title')
-    Tuition Fee Pupils
+    Tuition Fee Bachelor
 @endsection
 
 
@@ -16,9 +16,9 @@
                 <div class="col-lg-8 p-0 m-auto">
                     <div class="blog-details-text">
                         <div class="blog-details-title">
-                            <h5>Tuition Fee for 2020-21</h5>
+                            <h5>Bachelor Tuition Fee for 2020-21</h5>
                             <p></p>
-                            @foreach($pupil as $mes)
+                            @foreach($bachelor as $mes)
                                 <a href="{{ asset('uploads/pupils/' . $mes->tuition_fee) }}">Download</a>
 
 

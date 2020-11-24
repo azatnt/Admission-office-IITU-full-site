@@ -35,7 +35,7 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Obrazec Dogovora</h4>
-                        <a href="#">Explore</a>
+                        <a href="/obrazec_dogovora">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
@@ -53,49 +53,49 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Standard Admission</h4>
-                        <a href="#">Explore</a>
+                        <a href="/admission_for_bachelor">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Submission of Documents</h4>
-                        <a href="#">Explore</a>
+                        <a href="/submissionBachelor">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Document Deadline</h4>
-                        <a href="#">Explore</a>
+                        <a href="/bachelor_document_deadline">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Tuition Fees</h4>
-                        <a href="#">Explore</a>
+                        <a href="/bachelor_tuition_fee">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Dormitory Registration</h4>
-                        <a href="#">Explore</a>
+                        <a href="/bachelor_dormitory_register">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Creative Exams</h4>
-                        <a href="#">Explore</a>
+                        <a href="/bachelor_creative_exams">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Submission of Documents</h4>
-                        <a href="#">Explore</a>
+                        <a href="/submissionBachelor">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Admission Rules</h4>
-                        <a href="#">Explore</a>
+                        <a href="/bachelor_admission_rules">Explore</a>
                     </div>
                 </div>
             </div>

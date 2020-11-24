@@ -50,12 +50,16 @@ Route::get('/documents_for_admission_phd', function () {
 use App\Http\Controllers\AdminController;
 
 Route::get('/admission_for_pupils', [AdminController::class, 'admission_customer']);
+Route::get('/admission_for_bachelor', [AdminController::class, 'admission_bachelor']);
 Route::get('/submission', [AdminController::class, 'submission_customer']);
+Route::get('/submissionBachelor', [AdminController::class, 'submission_bachelor']);
 Route::get('/olympiad', [AdminController::class, 'olympiad_customer']);
 Route::get('/guidebook', [AdminController::class, 'guidebook_customer']);
 Route::get('/tuition_fee', [AdminController::class, 'tuition_customer']);
+Route::get('/bachelor_tuition_fee', [AdminController::class, 'tuition_bachelor']);
 Route::get('/open_days', [AdminController::class, 'open_days_customer']);
 Route::get('/magazine', [AdminController::class, 'magazine_customer']);
+Route::get('/obrazec_dogovora', [AdminController::class, 'obrazec_dogovora']);
 
 
 
@@ -116,6 +120,9 @@ Route::delete('/admin/program/delete/{id}', [AdminController::class, 'delete_pro
 
 Route::get('/register', [\App\Http\Controllers\RegistrationController::class, 'create']);
 Route::post('register', [\App\Http\Controllers\RegistrationController::class, 'store']);
+
+Route::get('/bachelor_dormitory_register',[\App\Http\Controllers\BachelorDormRegisterController::class,'create']);
+Route::post('bachelor_dormitory_register',[\App\Http\Controllers\BachelorDormRegisterController::class,'store']);
 
 
 Route::get('/login', [\App\Http\Controllers\SessionsController::class, 'create']);

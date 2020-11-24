@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('block title')
-    Tuition Fee Pupils
+    Obrazec Dogovora
 @endsection
 
 
@@ -16,10 +16,13 @@
                 <div class="col-lg-8 p-0 m-auto">
                     <div class="blog-details-text">
                         <div class="blog-details-title">
-                            <h5>Tuition Fee for 2020-21</h5>
+                            <h5>Obrazcy Dogovorov</h5>
                             <p></p>
-                            @foreach($pupil as $mes)
-                                <a href="{{ asset('uploads/pupils/' . $mes->tuition_fee) }}">Download</a>
+                            @foreach($bachelor as $mes)
+                                <div>
+                                    <a href="{{ asset('uploads/pupils/' . $mes->files) }}">{{$mes->files}} Download</a>
+
+                                </div>
 
 
                             @endforeach
