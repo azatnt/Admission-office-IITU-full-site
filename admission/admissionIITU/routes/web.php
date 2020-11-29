@@ -40,9 +40,7 @@ Route::get('/educational_program_bachelor', function () {
     return view('edu_prog_bach');
 });
 
-Route::get('/documents_to_download_master', function () {
-    return view('doc_to_down_master');
-});
+
 
 Route::get('/documents_for_admission_phd', function () {
     return view('doc_for_admission_phd');
@@ -160,3 +158,26 @@ Route::get('/admin/pupils/magazine', [AdminController::class, 'pupil_magazine'])
 Route::post('/admin/pupils/magazine', [AdminController::class, 'add_pupils_magazine'])->name('admin_pupil_magazine_create_url');
 
 Route::delete('/admin/pupil/open_days/delete/{id}', [AdminController::class, 'delete_pupil_magazine'])->name('admin_pupil_magazine_delete_url');
+
+
+Route::get('/admin/master/contact_consultation', [AdminController::class, 'master_contact_consultation'])->name('admin_master_contact_consultation_url');
+
+Route::post('/admin/master/contact_consultation', [AdminController::class, 'add_master_consultation'])->name('admin_master_consul_create_url');
+
+Route::get('/admin/master/consultation/{id}/edit', [AdminController::class, 'edit_master_consultation'])->name('admin_pupil_edit_url');
+
+Route::put('/admin/master/consultation/{id}/update', [AdminController::class, 'update_master_consultation'])->name('admin_master_consul_update_url');
+
+Route::delete('/admin/master/consultation/delete/{id}', [AdminController::class, 'delete_master_consultation'])->name('admin_master_consul_delete_url');
+
+Route::get('/master/consultation', [AdminController::class, 'all_master_consul_customer']);
+
+
+
+Route::get('/master/documents_to_download', [AdminController::class, 'master_documents_download'])->name("admin_master_documents_download_url");
+
+Route::post('/admin/master/documents_download', [AdminController::class, 'add_master_documents_download'])->name('admin_master_documents_download_create_url');
+
+Route::delete('/admin/master/documents_to_download/delete/{id}', [AdminController::class, 'delete_master_documents_to_download'])->name('admin_master_documents_download_delete_url');
+
+Route::get('/documents_to_download_master', [AdminController::class, 'customer_master_documents_download']);

@@ -29,7 +29,7 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Contact For Consultation</h4>
-                        <a href="#">Explore</a>
+                        <a href="/master/consultation">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">

@@ -6,6 +6,8 @@ use App\Models\BachelorAdmission;
 use App\Models\BachelorSubmission;
 use App\Models\Contact;
 //use GuzzleHttp\Psr7\Request;
+use App\Models\MasterConsul;
+use App\Models\MasterDocToDown;
 use App\Models\ObrazecDogovora;
 use App\Models\Programs;
 use App\Models\PupilAdmission;
@@ -413,6 +415,102 @@ class AdminController extends Controller
         return redirect()->route('admin_pupil_magazine_url');
     }
 
+
+    public function master_contact_consultation(){
+        $master = MasterConsul::all();
+
+        return view('admin_master_consultation', compact('master', $master));
+
+    }
+
+    public function add_master_consultation(){
+        $master = new MasterConsul();
+        $master ->faculty = request('faculty');
+        $master ->full_name = request('full_name');
+        $master ->phone = request('phone');
+
+        $master ->save();
+        return redirect()->route('admin_master_contact_consultation_url')->with('success', 'Your message is created');
+    }
+
+
+    public function edit_master_consultation($id){
+        $data = MasterConsul::find($id);
+//        echo $data;
+
+        return view('master_consul_edit', ['data' => $data]);
+    }
+
+
+    public function update_master_consultation(Request $req, $id){
+
+
+        $data = MasterConsul::find($id);
+        $data ->faculty = $req->input('faculty');
+        $data ->full_name = $req->input('full_name');
+        $data ->phone = $req->input('phone');
+        $data->save();
+//        echo $data;
+        return redirect()->route('admin_master_contact_consultation_url');
+
+    }
+
+    public function delete_master_consultation($id){
+        MasterConsul::find($id)->delete();
+
+        return redirect()->route('admin_master_contact_consultation_url');
+    }
+
+
+    public function all_master_consul_customer(){
+        $master = new MasterConsul();
+        return view('master_consultation', ['master' => $master->orderBy('faculty', 'asc')->get()]);
+    }
+
+
+    public function master_documents_download(){
+        $master = MasterDocToDown::all();
+
+        return view('admin_master_documents_download', compact('master', $master));
+
+    }
+
+
+    public function add_master_documents_download(Request $request){
+        $master = new MasterDocToDown();
+
+        if ($request->hasfile('files')) {
+            $file = $request->file('files');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $master->files = $filename;
+        } else {
+            return $request;
+            $master->files = '';
+        }
+
+        $master->save();
+
+        return redirect()->route('admin_master_documents_download_url')->with('success', 'Your message is created');
+
+    }
+
+
+    public function delete_master_documents_to_download($id){
+        MasterDocToDown::find($id)->delete();
+
+        return redirect()->route('admin_master_documents_download_url');
+    }
+
+
+    public function customer_master_documents_download(){
+        $master = MasterDocToDown::all();
+
+        return view('doc_to_down_master', compact('master', $master));
+
+    }
 }
 
 
