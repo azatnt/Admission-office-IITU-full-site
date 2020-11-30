@@ -41,13 +41,13 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Standard Admission Rule</h4>
-                        <a href="#">Explore</a>
+                        <a href="/standard_admission_rule">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Prerequisities of Program</h4>
-                        <a href="#">Explore</a>
+                        <a href="/prerequisites">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
@@ -65,25 +65,19 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Submission of Documents</h4>
-                        <a href="#">Explore</a>
+                        <a href="/submission">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Tuition Fees</h4>
-                        <a href="#">Explore</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mt-4">
-                    <div class="ss-text">
-                        <h4>Dormitory Registration</h4>
-                        <a href="#">Explore</a>
+                        <a href="/master_tuition">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Double Diplom Program</h4>
-                        <a href="#">Explore</a>
+                        <a href="/master_double_diploma">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
@@ -92,12 +86,7 @@
                         <a href="#">Explore</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mt-4">
-                    <div class="ss-text second-row">
-                        <h4>Results of Tvorcheskih</h4>
-                        <a href="#">Explore</a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>

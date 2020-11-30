@@ -82,7 +82,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub-menu-list">
                         <li><a href="{{ route('admin_master_contact_consultation_url') }}">Contact for Consultation</a> </li>
                         <li><a href="/master/documents_to_download">Documents to Download</a></li>
-                        <li><a href="/admin/pupils/magazine">Educational Magazine</a></li>
+                        <li><a href="/admin/master/standard_admission_rule">Standard admission rule</a></li>
+                        <li><a href="/admin/master/submission">Submission of documents</a></li>
+
                     </ul>
                 </li>
             </ul>

@@ -8,6 +8,8 @@ use App\Models\Contact;
 //use GuzzleHttp\Psr7\Request;
 use App\Models\MasterConsul;
 use App\Models\MasterDocToDown;
+use App\Models\MasterStandardAdmission;
+use App\Models\MasterSubmission;
 use App\Models\ObrazecDogovora;
 use App\Models\Programs;
 use App\Models\PupilAdmission;
@@ -510,6 +512,195 @@ class AdminController extends Controller
 
         return view('doc_to_down_master', compact('master', $master));
 
+    }
+
+
+    public function master_standard_admission_rule(){
+        $master = MasterStandardAdmission::all();
+
+        return view('admin_master_standard_admission', compact('master', $master));
+
+    }
+
+
+    public function add_master_standard_admission_rule(Request $request){
+        $master = new MasterStandardAdmission();
+
+        if ($request->hasfile('files')) {
+            $file = $request->file('files');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $master->files = $filename;
+        } else {
+            return $request;
+            $master->files = '';
+        }
+
+        $master->save();
+
+        return redirect()->route('admin_master_standard_admission_rule_url')->with('success', 'Your message is created');
+
+    }
+
+
+    public function delete_master_standard_admission($id){
+        MasterStandardAdmission::find($id)->delete();
+
+        return redirect()->route('admin_master_standard_admission_rule_url');
+    }
+
+
+    public function customer_master_standard_admission(){
+        $master = MasterStandardAdmission::all();
+
+        return view('master_standard_admission', compact('master', $master));
+
+    }
+
+
+    public function master_submission(){
+        $master = MasterSubmission::all();
+
+        return view('admin_master_submission', compact('master', $master));
+
+    }
+
+    public function add_master_submission(Request $request){
+        $master = new MasterSubmission();
+
+        if ($request->hasfile('prerequisites')) {
+            $file = $request->file('prerequisites');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $master->prerequisites = $filename;
+        } else {
+            return $request;
+            $master->prerequisites = '';
+        }
+
+        $master ->submission = request('submission');
+
+
+        if ($request->hasfile('tuition')) {
+            $file = $request->file('tuition');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $master->tuition = $filename;
+        } else {
+            return $request;
+            $master->tuition = '';
+        }
+
+
+        if ($request->hasfile('diploma')) {
+            $file = $request->file('diploma');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $master->diploma = $filename;
+        } else {
+            return $request;
+            $master->diploma = '';
+        }
+
+        $master->save();
+
+        return redirect()->route('admin_master_submission_url')->with('success', 'Your message is created');
+
+    }
+
+
+    public function edit_master_submission($id){
+        $data = MasterSubmission::find($id);
+//        echo $data;
+
+        return view('admin_master_submission_edit', ['data' => $data]);
+    }
+
+
+
+    public function update_master_submission(Request $request, $id){
+        $master = MasterSubmission::find($id);
+
+        if ($request->hasfile('prerequisites')) {
+            $file = $request->file('prerequisites');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $master->prerequisites = $filename;
+        } else {
+            return $request;
+            $master->prerequisites = '';
+        }
+
+        $master->submission = request('submission');
+
+
+        if ($request->hasfile('tuition')) {
+            $file = $request->file('tuition');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $master->tuition = $filename;
+        } else {
+            return $request;
+            $master->tuition = '';
+        }
+
+
+        if ($request->hasfile('diploma')) {
+            $file = $request->file('diploma');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $master->diploma = $filename;
+        } else {
+            return $request;
+            $master->diploma = '';
+        }
+
+        $master->save();
+
+        return redirect()->route('admin_master_submission_url')->with('success', 'Your message is created');
+
+    }
+
+
+    public function delete_master_submission($id){
+        MasterSubmission::find($id)->delete();
+
+        return redirect()->route('admin_master_submission_url');
+    }
+
+
+    public function prerequisites_customer(){
+        $master = MasterSubmission::all();
+        return view('master_prerequisites', ['master' => $master]);
+    }
+
+    public function master_submission_customer(){
+        $master = MasterSubmission::all();
+        return view('master_submission', ['master' => $master]);
+    }
+
+    public function master_tuition_customer(){
+        $master = MasterSubmission::all();
+        return view('master_tuition', ['master' => $master]);
+    }
+
+    public function master_diploma_customer(){
+        $master = MasterSubmission::all();
+        return view('master_diploma', ['master' => $master]);
     }
 }
 

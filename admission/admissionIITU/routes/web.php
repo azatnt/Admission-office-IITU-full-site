@@ -181,3 +181,29 @@ Route::post('/admin/master/documents_download', [AdminController::class, 'add_ma
 Route::delete('/admin/master/documents_to_download/delete/{id}', [AdminController::class, 'delete_master_documents_to_download'])->name('admin_master_documents_download_delete_url');
 
 Route::get('/documents_to_download_master', [AdminController::class, 'customer_master_documents_download']);
+
+
+Route::get('/admin/master/standard_admission_rule', [AdminController::class, 'master_standard_admission_rule'])->name("admin_master_standard_admission_rule_url");
+
+Route::post('/admin/master/standard_admission_rule', [AdminController::class, 'add_master_standard_admission_rule'])->name('admin_master_standard_admission_create_url');
+
+Route::delete('/admin/master/standard_admission/delete/{id}', [AdminController::class, 'delete_master_standard_admission'])->name('admin_master_standard_admission_delete_url');
+
+Route::get('/standard_admission_rule', [AdminController::class, 'customer_master_standard_admission'])->name("master_standard_admission_rule_url");
+
+
+
+Route::get('/admin/master/submission', [AdminController::class, 'master_submission'])->name("admin_master_submission_url");
+
+Route::post('/admin/master/submission', [AdminController::class, 'add_master_submission'])->name('admin_master_submission_create_url');
+
+Route::get('/admin/master/submission/{id}/edit', [AdminController::class, 'edit_master_submission'])->name('admin_master_submission_edit_url');
+
+Route::put('/admin/master/submission/{id}/update', [AdminController::class, 'update_master_submission'])->name('admin_master_submission_update_url');
+
+Route::delete('/admin/master/submission/delete/{id}', [AdminController::class, 'delete_master_submission'])->name('admin_master_submission_delete_url');
+
+Route::get('/prerequisites', [AdminController::class, 'prerequisites_customer']);
+Route::get('/submission', [AdminController::class, 'master_submission_customer']);
+Route::get('/master_tuition', [AdminController::class, 'master_tuition_customer']);
+Route::get('/master_double_diploma', [AdminController::class, 'master_diploma_customer']);
