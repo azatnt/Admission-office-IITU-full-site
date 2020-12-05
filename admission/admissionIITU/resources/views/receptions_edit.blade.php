@@ -55,14 +55,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="active"><a href="index.html"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
+                <li class="active"><a href="/admin"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
 
-                <li><a href="forms.html"><i class="lnr lnr-spell-check"></i> <span>News</span></a></li>
-                <li><a href="{{ route('admin_reception_create_url') }}"><i class="lnr lnr-menu"></i> <span>Tables</span></a></li>
+                <li><a href="{{ route('admin_programs_url') }}"><i class="lnr lnr-spell-check"></i> <span>Programs</span></a></li>
+                <li><a href="{{ route('admin_receptions_url') }}"><i class="lnr lnr-menu"></i> <span>Receptions</span></a></li>
                 <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>MailBox</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="{{ route('admin_inbox_url') }}">Inbox</a> </li>
                         <li><a href="compose-mail.html">Compose Mail</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>Pupils</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="{{ route('admin_pupil_admission_url') }}">Admissions Regulations</a> </li>
+                        {{--                        <li><a href="compose-mail.html">Submissions of Documents</a></li>--}}
+                        <li><a href="/admin/pupils/open_days">Open Days</a></li>
+                        <li><a href="/admin/pupils/magazine">Educational Magazine</a></li>
+                        {{--                        <li><a href="compose-mail.html">International olympiad IITU</a></li>--}}
+                        {{--                        <li><a href="compose-mail.html">Guidebook of Applicant</a></li>--}}
+                        {{--                        <li><a href="compose-mail.html">Tuition Fees</a></li>--}}
+                        {{--                        <li><a href="compose-mail.html">Contacts</a></li>--}}
+                    </ul>
+                </li>
+                <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>Master</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="{{ route('admin_master_contact_consultation_url') }}">Contact for Consultation</a> </li>
+                        <li><a href="/master/documents_to_download">Documents to Download</a></li>
+                        <li><a href="/admin/master/standard_admission_rule">Standard admission rule</a></li>
+                        <li><a href="/admin/master/submission">Submission of documents</a></li>
+
                     </ul>
                 </li>
             </ul>

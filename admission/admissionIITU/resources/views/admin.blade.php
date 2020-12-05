@@ -264,19 +264,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li class="dropdown profile_details_drop">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <div class="profile_img">
+                                        @if( auth()->check() )
                                         <span style="background:url(img/hero/dima.jpg) no-repeat center"> </span>
                                         <div class="user-name">
-                                            <p>Dima<span>Administrator</span></p>
+                                            <p>{{ auth()->user()->name }}<span>Administrator</span></p>
                                         </div>
                                         <i class="lnr lnr-chevron-down"></i>
                                         <i class="lnr lnr-chevron-up"></i>
                                         <div class="clearfix"></div>
+                                        @endif
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu drp-mnu">
                                     <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
                                     <li> <a href="#"><i class="fa fa-user"></i>Profile</a> </li>
-                                    <li> <a href="sign-up.html"><i class="fa fa-sign-out"></i> Logout</a> </li>
+                                    <li> <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
                                 </ul>
                             </li>
                             <div class="clearfix"> </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Middleware\TrimStrings;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -45,5 +46,19 @@ class User extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
+
+
+    public function hasRole($role){
+        if($this->roles()->where('name', $role)->first()){
+            return true;
+        }
+
+        return false;
     }
 }

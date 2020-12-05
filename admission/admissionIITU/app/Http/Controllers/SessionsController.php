@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
@@ -20,7 +21,11 @@ class SessionsController extends Controller
             ]);
         }
 
+        if(Auth::user()->hasRole('admin')){
+            return redirect()->to('admin');
+        }
         return redirect()->to('/');
+
     }
 
     public function destroy()
@@ -29,5 +34,15 @@ class SessionsController extends Controller
 
         return redirect()->to('/');
     }
+
+
+//    public function redirectTo(){
+//        if(Auth::user()->hasRole('admin')){
+//            $this->redirectTo() = route('admin_url');
+//            return $this->redirectTo();
+//        }
+//        $this->redirectTo() = route('/');
+//    }
+
 }
 
