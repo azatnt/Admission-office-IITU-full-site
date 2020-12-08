@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
 use App\Models\BachelorAdmission;
+use App\Models\BachelorEducationalProgram;
 use App\Models\BachelorSubmission;
 use App\Models\Contact;
 //use GuzzleHttp\Psr7\Request;
@@ -789,6 +790,49 @@ class AdminController extends Controller
     public function master_diploma_customer(){
         $master = MasterSubmission::all();
         return view('master_diploma', ['master' => $master]);
+    }
+
+    public function educational(){
+        $educational = new BachelorEducationalProgram();
+        return view('admin_educational', ['data' => $educational->orderBy('id', 'desc')->get()]);
+    }
+
+
+    public function add_bachelor_educational(){
+        $educational = new BachelorEducationalProgram();
+        $educational ->code = request('code');
+        $educational ->faculty = request('faculty');
+        $educational ->name = request('name');
+        $educational ->score = request('score');
+
+        $educational ->save();
+        return redirect()->route('admin_bachelor_educational_url')->with('success', 'Your message is created');
+    }
+
+    public function edit_bachelor_educational($id){
+        $data = BachelorEducationalProgram::find($id);
+        return view('bachelor_educational_edit', ['data' => $data]);
+    }
+
+    public function update_bachelor_educational(Request $req, $id){
+
+
+        $data = BachelorEducationalProgram::find($id);
+        $data ->code = $req->input('code');
+        $data ->faculty = $req->input('faculty');
+        $data ->name = $req->input('name');
+        $data ->score = $req->input('score');
+        $data->save();
+//        echo $data;
+        return redirect()->route('admin_bachelor_educational_url');
+
+    }
+
+
+    public function delete_bachelor_educational($id){
+        BachelorEducationalProgram::find($id)->delete();
+
+        return redirect()->route('admin_bachelor_educational_url');
     }
 }
 

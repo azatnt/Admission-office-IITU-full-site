@@ -66,6 +66,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="compose-mail.html">Compose Mail</a></li>
                     </ul>
                 </li>
+                <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>Bachelor</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="{{ route('admin_bachelor_educational_url') }}">Educational Programs</a> </li>
+                        <li><a href="compose-mail.html">Psycho Test</a></li>
+                    </ul>
+                </li>
                 <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>Pupils</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="{{ route('admin_pupil_admission_url') }}">Admissions Regulations</a> </li>

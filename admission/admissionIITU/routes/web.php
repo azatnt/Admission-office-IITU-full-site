@@ -229,3 +229,15 @@ Route::get('/prerequisites', [AdminController::class, 'prerequisites_customer'])
 Route::get('/submission', [AdminController::class, 'master_submission_customer']);
 Route::get('/master_tuition', [AdminController::class, 'master_tuition_customer']);
 Route::get('/master_double_diploma', [AdminController::class, 'master_diploma_customer']);
+
+
+
+Route::get('/admin/bachelor/educational', [AdminController::class, 'educational'])->name('admin_bachelor_educational_url');
+
+Route::post('/admin/bachelor/educational', [AdminController::class, 'add_bachelor_educational'])->name('admin_bachelor_educational_create_url');
+
+Route::get('/admin/bachelor/educational/{id}/edit', [AdminController::class, 'edit_bachelor_educational'])->name('admin_bachelor_educational_edit_url');
+
+Route::put('/admin/bachelor/educational/{id}/update', [AdminController::class, 'update_bachelor_educational'])->name('admin_bachelor_educational_update_url');
+
+Route::delete('/admin/bachelor/educational/delete/{id}', [AdminController::class, 'delete_bachelor_educational'])->name('admin_bachelor_educational_delete_url');
