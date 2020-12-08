@@ -86,7 +86,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     </ul>
                 </li>
-
             </ul>
             <!--sidebar nav end-->
         </div>
@@ -294,7 +293,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container" style="margin-top: 100px;">
 
 
-            <button type="button" style="margin-left: 10px;" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add</button>
+            <button type="button" style="margin-left: 10px;" class="btn btn-success mb-1" data-toggle="modal" data-target="#exampleModal">Add</button>
 
             <!-- The Modal -->
             <div class="modal fade" id="exampleModal">
@@ -303,26 +302,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">Add program</h4>
+                            <h4 class="modal-title">Add contact</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="{{ route('admin_programs_create_url') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('admin_phd_consul_create_url') }}">
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label>Title</label>
-                                    <input type="text" class="form-control" name="title">
+                                    <label>Faculty</label>
+                                    <input type="text" class="form-control" name="faculty">
                                 </div>
                                 <div class="form-group">
-                                    <label> Amount</label>
-                                    <input type="integer" class="form-control" name="amount">
+                                    <label> Full name</label>
+                                    <input type="integer" class="form-control" name="full_name">
 
                                 </div>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" name="image" class="custom-file-input">
-                                        <label class="custom-file-label">Choose file</label>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" name="phone" >
                                 </div>
 
                                 <div class="form-group">
@@ -338,38 +335,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
             <table class="table table-fhr">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Majors</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Operation</th>
-                        <th scope="col">Operation</th>
-                    </tr>
-                </thead>
                 <tbody>
-                @foreach($programs as $mes)
+                @foreach($phd as $mes)
                     <tr class="unread checked">
-                        <td class="hidden-xs">{{ $mes->id }}</td>
-                        <td class="hidden-xs">{{ $mes->title }}</td>
+
+                        <td class="hidden-xs">{{ $mes->faculty }}</td>
                         <td>
-                            {{$mes->amount}}
+                            {{$mes->fullname}}
                         </td>
                         <td>
-{{--                            <img style="height: 10%" src="{{ asset('uploads/appsetting/' . $row->image) }}" alt="">--}}
-{{--                            <a href="{{ asset('uploads/programs/' . $mes->image) }}">open</a>--}}
-                            <img style="height: 5%" src="{{ asset('uploads/programs/' . $mes->image) }}" alt="image">
+                            {{$mes->phone}}
+                        </td>
+                        <td>
+                            {{$mes->created_at}}
                         </td>
 
-
                         <td>
-                            <a href="{{route('admin_program_edit_url', $mes->id)}}">
+                            <a href="{{route('admin_pupil_edit_url', $mes->id)}}">
                                 <button type="button" style="margin-left: 10px; color: white; background-color: #212529" class="btn btn-secondary btn-sm" data-toggle="modal">Edit</button>
                             </a>
                         </td>
                         <td>
-                            <form action="{{route('admin_program_delete_url', $mes->id)}}" method="post">
+                            <form action="{{route('admin_master_consul_delete_url', $mes->id)}}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" style="margin-left: 10px;" class="btn btn-danger btn-sm" data-toggle="modal">Delete</button>

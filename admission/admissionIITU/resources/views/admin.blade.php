@@ -44,10 +44,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <!--logo and iconic logo start-->
         <div class="logo">
-            <h1><a href="index.html">Easy <span>Admin</span></a></h1>
+            <h1><a href="/admin">Easy <span>Admin</span></a></h1>
         </div>
         <div class="logo-icon text-center">
-            <a href="index.html"><i class="lnr lnr-home"></i> </a>
+            <a href="/admin"><i class="lnr lnr-home"></i> </a>
         </div>
 
         <!--logo and iconic logo end-->
@@ -84,6 +84,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="/master/documents_to_download">Documents to Download</a></li>
                         <li><a href="/admin/master/standard_admission_rule">Standard admission rule</a></li>
                         <li><a href="/admin/master/submission">Submission of documents</a></li>
+
+                    </ul>
+                </li>
+                <li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>PHD</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="{{ route('admin_phd_contact_consultation_url') }}">Contact for Consultation</a> </li>
+                        <li><a href="/phd/documents_to_download">Instruction for Applicants</a></li>
+                        <li><a href="/admin/phd/ph_admin_entrance_exam_results">Entrance Exam Results</a></li>
+                        <li><a href="/admin/phd/submission">Submission of documents</a></li>
 
                     </ul>
                 </li>

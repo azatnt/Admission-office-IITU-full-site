@@ -44,10 +44,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <!--logo and iconic logo start-->
         <div class="logo">
-            <h1><a href="index.html">Easy <span>Admin</span></a></h1>
+            <h1><a href="/admin">Easy <span>Admin</span></a></h1>
         </div>
         <div class="logo-icon text-center">
-            <a href="index.html"><i class="lnr lnr-home"></i> </a>
+            <a href="/admin"><i class="lnr lnr-home"></i> </a>
         </div>
 
         <!--logo and iconic logo end-->

@@ -42,61 +42,61 @@
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Programs Of Entrance</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_programs_entrance">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Instruction For Applicants</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_instruction_for_applicants">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>State Order 2020</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_state_order">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Contact For Consultation</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_contacts_for_consultation">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Submission of Documents</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_submission_of_documents">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Tuition Fees</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_tuition_fees">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text">
                         <h4>Dormitory Registration</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_dormitory_register">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
-                        <h4>Double Diplom Program</h4>
+                        <h4>DuoLingo English Test</h4>
                         <a href="#">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Educational Programs</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_educational_programs">Explore</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mt-4">
                     <div class="ss-text second-row">
                         <h4>Entrance Exam Results</h4>
-                        <a href="#">Explore</a>
+                        <a href="/phd_entrance_exam_results">Explore</a>
                     </div>
                 </div>
             </div>

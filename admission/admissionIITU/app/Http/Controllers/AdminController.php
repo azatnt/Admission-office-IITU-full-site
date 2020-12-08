@@ -11,6 +11,14 @@ use App\Models\MasterDocToDown;
 use App\Models\MasterStandardAdmission;
 use App\Models\MasterSubmission;
 use App\Models\ObrazecDogovora;
+use App\Models\PhdContactsForConsultation;
+use App\Models\PhdEducationalPrograms;
+use App\Models\PhdEntranceExamResults;
+use App\Models\PhdInstructionForApplicants;
+use App\Models\PhdProgramsOfEntrance;
+use App\Models\PhdStateOrder;
+use App\Models\PhdSubmissionOfDocuments;
+use App\Models\PhdTuitionFees;
 use App\Models\Programs;
 use App\Models\PupilAdmission;
 use App\Models\PupilMagazine;
@@ -96,6 +104,15 @@ class AdminController extends Controller
     public function all_receptions_customer(){
         $reception = new Reception();
         return view('reception', ['receptions' => $reception->orderBy('faculty', 'asc')->get()]);
+    }
+    public function all_phd_programs_admin(){
+        $php_programs = new PhdProgramsOfEntrance();
+        return view('phd_programs_of_entrance',['phd_programs' => $php_programs->orderBy('id','asc')->get()]);
+    }
+
+    public function all_phd_programs_customer(){
+        $php_programs = new PhdProgramsOfEntrance();
+        return view('phd_programs_of_entrance',['phd_programs' => $php_programs->orderBy('id','asc')->get()]);
     }
 
 
@@ -330,6 +347,35 @@ class AdminController extends Controller
         $pupil = new PupilMagazine();
         return view('educational_magazine', ['pupil' => $pupil->orderBy('id', 'desc')->get()]);
     }
+    public function instruction_for_applicants(){
+        $phd = new PhdInstructionForApplicants();
+        return view('phd_instructions_for_applicants',['phd'=>$phd->orderBy('id','desc')->get()]);
+    }
+    public function phd_state_order(){
+        $phd = new PhdStateOrder();
+        return view('phd_state_order',['phd'=>$phd->orderBy('id','desc')->get()]);
+    }
+    public function phd_contacts_for_consultation(){
+        $phd = new PhdContactsForConsultation();
+        return view('phd_contacts_for_consultation',['phd'=>$phd->orderBy('id','asc')->get()]);
+    }
+    public function phd_submission_of_documents(){
+        $phd = new PhdSubmissionOfDocuments();
+        return view('phd_submission_of_documents',['phd'=>$phd->orderBy('id','asc')->get()]);
+    }
+    public function phd_tuition_fees(){
+        $phd = new PhdTuitionFees();
+        return view('phd_tuition_fees',['phd'=>$phd->orderBy('id','asc')->get()]);
+    }
+    public function phd_educational_programs(){
+        $phd = new PhdEducationalPrograms();
+        return view('phd_educational_programs',['phd'=>$phd->orderBy('id','asc')->get()]);
+    }
+    public function phd_entrance_exam_results(){
+        $phd = new PhdEntranceExamResults();
+        return view('phd_entrance_exam_results',['phd'=>$phd->orderBy('id','asc')->get()]);
+    }
+
 
     public function obrazec_dogovora(){
         $bachelor = new ObrazecDogovora();
@@ -424,6 +470,11 @@ class AdminController extends Controller
         return view('admin_master_consultation', compact('master', $master));
 
     }
+    public function phd_admin_contact_consultation(){
+        $phd = PhdContactsForConsultation::all();
+
+        return view('admin_phd_consultation',compact('phd',$phd));
+    }
 
     public function add_master_consultation(){
         $master = new MasterConsul();
@@ -433,6 +484,15 @@ class AdminController extends Controller
 
         $master ->save();
         return redirect()->route('admin_master_contact_consultation_url')->with('success', 'Your message is created');
+    }
+    public function add_phd_consultation(){
+        $phd = new PhdContactsForConsultation();
+        $phd ->faculty = request('faculty');
+        $phd ->fullname = request('full_name');
+        $phd ->phone = request('phone');
+
+        $phd ->save();
+        return redirect()->route('admin_phd_contact_consultation_url')->with('success','Your message is created');
     }
 
 
@@ -476,6 +536,10 @@ class AdminController extends Controller
         return view('admin_master_documents_download', compact('master', $master));
 
     }
+    public function phd_admin_documents_download(){
+        $phd = PhdInstructionForApplicants::all();
+        return view('admin_phd_documents_download',compact('phd',$phd));
+    }
 
 
     public function add_master_documents_download(Request $request){
@@ -496,6 +560,26 @@ class AdminController extends Controller
         $master->save();
 
         return redirect()->route('admin_master_documents_download_url')->with('success', 'Your message is created');
+
+    }
+    public function add_phd_documents_download(Request $request){
+        $phd = new PhdInstructionForApplicants();
+
+        if ($request->hasfile('files')) {
+            $file = $request->file('files');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/master/', $filename);
+
+            $phd->files = $filename;
+        } else {
+            return $request;
+            $phd->files = '';
+        }
+
+        $phd->save();
+
+        return redirect()->route('admin_phd_documents_download_url')->with('success', 'Your message is created');
 
     }
 
@@ -565,6 +649,10 @@ class AdminController extends Controller
 
         return view('admin_master_submission', compact('master', $master));
 
+    }
+    public function phd_admin_submission(){
+        $phd = PhdSubmissionOfDocuments::all();
+        return view('admin_phd_submission',compact('phd',$phd));
     }
 
     public function add_master_submission(Request $request){

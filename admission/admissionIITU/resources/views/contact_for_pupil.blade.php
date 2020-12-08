@@ -56,10 +56,10 @@
                         @endif
                         <form action="{{ route('contact_pupil_form') }}" method="post">
                             @csrf
-                            <input name="name" id="name" type="text" placeholder="Name">
-                            <input name="phone" id="phone" type="text" placeholder="Phone">
-                            <textarea name="message" id="message" placeholder="Message"></textarea>
-                            <button type="submit" >Submit</button>
+                            <input style="border-radius: 20px" name="name" id="name" type="text" placeholder="Name">
+                            <input style="border-radius: 20px" name="phone" id="phone" type="text" placeholder="Phone">
+                            <textarea style="border-radius: 20px" name="message" id="message" placeholder="Message"></textarea>
+                            <button style="border-radius: 20px"  type="submit" >Submit</button>
                         </form>
                     </div>
                 </div>

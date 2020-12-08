@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BachDormUser;
+use App\Models\PhdDormUser;
 use Illuminate\Http\Request;
 
-class BachelorDormRegisterController extends Controller
+class PhdDormRegisterController extends Controller
 {
-    //
-
     public function create()
     {
-        return view('bachelor_dormitory_registration');
+        return view('phd_dormitory_registration');
     }
 
     public function store()
@@ -22,9 +20,9 @@ class BachelorDormRegisterController extends Controller
             'password' => 'required'
         ]);
 
-        $user = BachDormUser::create(request(['name', 'email', 'password']));
+        $user = PhdDormUser::create(request(['name', 'email', 'password']));
 
-
-        return redirect()->to('/bachelor');
+        return redirect()->to('/phd');
     }
+    //
 }

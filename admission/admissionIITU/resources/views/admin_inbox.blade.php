@@ -43,10 +43,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <!--logo and iconic logo start-->
         <div class="logo">
-            <h1><a href="index.html">Easy <span>Admin</span></a></h1>
+            <h1><a href="/admin">Easy <span>Admin</span></a></h1>
         </div>
         <div class="logo-icon text-center">
-            <a href="index.html"><i class="lnr lnr-home"></i> </a>
+            <a href="/admin"><i class="lnr lnr-home"></i> </a>
         </div>
 
         <!--logo and iconic logo end-->
@@ -253,7 +253,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li class="dropdown profile_details_drop">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <div class="profile_img">
-                                        <span style="background:url(/img/hero/dima.jpg) no-repeat center"> </span>
+{{--                                        <span style="background:url(/img/hero/dima.jpg) no-repeat center"> </span>--}}
                                         <div class="user-name">
                                             <p>Dima<span>Administrator</span></p>
                                         </div>
@@ -387,105 +387,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </form>
                         <div class="mailbox-content">
                             <div class="mail-toolbar clearfix">
-                                <div class="float-left">
-                                    <div class="btn btn_1 btn-default mrg5R">
-                                        <i class="fa fa-refresh"> </i>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a href="#" title="" class="btn btn-default" data-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa fa-cog icon_8"></i>
-                                            <i class="fa fa-chevron-down icon_8"></i>
-                                            <div class="ripple-wrapper"></div></a>
-                                        <ul class="dropdown-menu float-right">
-                                            <li>
-                                                <a href="#" title="">
-                                                    <i class="fa fa-pencil-square-o icon_9"></i>
-                                                    Edit
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">
-                                                    <i class="fa fa-calendar icon_9"></i>
-                                                    Schedule
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" title="">
-                                                    <i class="fa fa-download icon_9"></i>
-                                                    Download
-                                                </a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="#" class="font-red" title="">
-                                                    <i class="fa fa-times" icon_9=""></i>
-                                                    Delete
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="float-right">
 
+                                @include('includes.messages')
 
-                                    @include('includes.messages')
+                                <div class="input-group" id="datetimepicker1">
+                                    <form action="/filter" style="display: flex; justify-content: space-around">
 
-                                    <form action="/filter" style="display: flex">
-                                        Start Date:
-                                        <input type="date" name="from_date">
+                                        <div class="form-group" style="margin-right: 25px">
+                                            <label for="startDate">Start Date</label>
+                                            <input type="date" id="startDate" name="from_date" class="form-control">
 
-                                        <br>
-                                        <br>
-
-                                        End Date:
-                                        <input type="date" name="to_date">
-
-                                        <br>
-
-                                        <input type="submit">
+                                        </div>
+                                        <div class="form-group" style="margin-right: 25px">
+                                            <label for="endDate">End Date</label>
+                                            <input type="date" id="endDate" name="to_date" class="form-control">
+                                        </div>
+                                        <div class="form-group" style="margin-right: 25px">
+                                            <label></label>
+                                            <button type="submit" class="btn btn-success">Отправить</button>
+                                        </div>
                                     </form>
-                                    <br>
-
-
-
-                                    <span class="text-muted m-r-sm">Showing 20 of 346 </span>
-                                    <div class="btn-group m-r-sm mail-hidden-options" style="display: inline-block;">
-                                        <div class="btn-group">
-                                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-folder"></i> <span class="caret"></span></a>
-                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                <li><a href="#">Social</a></li>
-                                                <li><a href="#">Forums</a></li>
-                                                <li><a href="#">Updates</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Spam</a></li>
-                                                <li><a href="#">Trash</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">New</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="btn-group">
-                                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tags"></i> <span class="caret"></span></a>
-                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                <li><a href="#">Work</a></li>
-                                                <li><a href="#">Family</a></li>
-                                                <li><a href="#">Social</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Primary</a></li>
-                                                <li><a href="#">Promotions</a></li>
-                                                <li><a href="#">Forums</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="btn-group">
-                                        <a class="btn btn-default"><i class="fa fa-angle-left"></i></a>
-                                        <a class="btn btn-default"><i class="fa fa-angle-right"></i></a>
-                                    </div>
-
-
                                 </div>
                             </div>
-                            <button type="button" style="margin-left: 10px;" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add</button>
+
+                             <br>
+
+                            <div class="row" style="display: flex; justify-content: space-between">
+                                <h3 class="col">Add Message</h3>
+                                <div class="col">
+                                    <button type="button" style="margin-left: 10px;" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add</button>
+                                </div>
+                            </div>
 
 
                             <!-- The Modal -->
@@ -524,7 +456,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
 
-
+                            <hr>
                             <table class="table table-fhr">
                                 <tbody>
                                 @foreach($messages as $mes)
@@ -664,7 +596,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="col-xs-2 activity-desc1"></div>
                                     <div class="col-xs-7 activity-img2">
                                         <div class="activity-desc-sub1">
-                                            <h5>Adom Smith</h5>
+                                            <h5>Adam Smith</h5>
                                             <p>Wow that's great</p>
                                         </div>
                                     </div>

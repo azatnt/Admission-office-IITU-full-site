@@ -45,6 +45,8 @@ Route::get('/educational_program_bachelor', function () {
 Route::get('/documents_for_admission_phd', function () {
     return view('doc_for_admission_phd');
 });
+
+
 use App\Http\Controllers\AdminController;
 
 Route::get('/admission_for_pupils', [AdminController::class, 'admission_customer']);
@@ -57,6 +59,14 @@ Route::get('/tuition_fee', [AdminController::class, 'tuition_customer']);
 Route::get('/bachelor_tuition_fee', [AdminController::class, 'tuition_bachelor']);
 Route::get('/open_days', [AdminController::class, 'open_days_customer']);
 Route::get('/magazine', [AdminController::class, 'magazine_customer']);
+Route::get('/phd_instruction_for_applicants', [AdminController::class, 'instruction_for_applicants']);
+Route::get('/phd_state_order', [AdminController::class, 'phd_state_order']);
+Route::get('/phd_contacts_for_consultation',[AdminController::class, 'phd_contacts_for_consultation']);
+Route::get('/phd_submission_of_documents',[AdminController::class, 'phd_submission_of_documents']);
+Route::get('/phd_tuition_fees',[AdminController::class,'phd_tuition_fees']);
+Route::get('/phd_educational_programs',[AdminController::class,'phd_educational_programs']);
+Route::get('/phd_entrance_exam_results',[AdminController::class,'phd_entrance_exam_results']);
+
 Route::get('/obrazec_dogovora', [AdminController::class, 'obrazec_dogovora']);
 
 
@@ -97,6 +107,11 @@ Route::post('/admin/reception', [AdminController::class, 'add_receptions'])->nam
 
 Route::get('/reception', [AdminController::class, 'all_receptions_customer'])->name('admin_reception_customer_url');
 
+Route::get('/phd_programs_entrance',[AdminController::class,'all_phd_programs_customer'])->name('admin_phd_programs_url');
+
+
+
+
 Route::get('/admin/reception/{id}/edit', [AdminController::class, 'edit_reception'])->name('admin_reception_edit_url');
 
 Route::put('/admin/reception/{id}/update', [AdminController::class, 'update_reception'])->name('admin_receptions_update_url');
@@ -122,6 +137,8 @@ Route::post('register', [\App\Http\Controllers\RegistrationController::class, 's
 Route::get('/bachelor_dormitory_register',[\App\Http\Controllers\BachelorDormRegisterController::class,'create']);
 Route::post('bachelor_dormitory_register',[\App\Http\Controllers\BachelorDormRegisterController::class,'store']);
 
+Route::get('/phd_dormitory_register',[\App\Http\Controllers\PhdDormRegisterController::class,'create']);
+Route::post('phd_dormitory_register',[\App\Http\Controllers\PhdDormRegisterController::class,'store']);
 
 Route::get('/login', [\App\Http\Controllers\SessionsController::class, 'create']);
 Route::post('/login', [\App\Http\Controllers\SessionsController::class, 'store']);
@@ -161,8 +178,10 @@ Route::delete('/admin/pupil/open_days/delete/{id}', [AdminController::class, 'de
 
 
 Route::get('/admin/master/contact_consultation', [AdminController::class, 'master_contact_consultation'])->name('admin_master_contact_consultation_url');
+Route::get('/admin/phd/contact_consultation', [AdminController::class, 'phd_admin_contact_consultation'])->name('admin_phd_contact_consultation_url');
 
 Route::post('/admin/master/contact_consultation', [AdminController::class, 'add_master_consultation'])->name('admin_master_consul_create_url');
+Route::post('/admin/phd/contact_consultation', [AdminController::class, 'add_phd_consultation'])->name('admin_phd_consul_create_url');
 
 Route::get('/admin/master/consultation/{id}/edit', [AdminController::class, 'edit_master_consultation'])->name('admin_pupil_edit_url');
 
@@ -175,8 +194,10 @@ Route::get('/master/consultation', [AdminController::class, 'all_master_consul_c
 
 
 Route::get('/master/documents_to_download', [AdminController::class, 'master_documents_download'])->name("admin_master_documents_download_url");
+Route::get('/phd/documents_to_download', [AdminController::class, 'phd_admin_documents_download'])->name("admin_phd_documents_download_url");
 
 Route::post('/admin/master/documents_download', [AdminController::class, 'add_master_documents_download'])->name('admin_master_documents_download_create_url');
+Route::post('/admin/phd/documents_download', [AdminController::class, 'add_phd_documents_download'])->name('admin_phd_documents_download_create_url');
 
 Route::delete('/admin/master/documents_to_download/delete/{id}', [AdminController::class, 'delete_master_documents_to_download'])->name('admin_master_documents_download_delete_url');
 
@@ -194,6 +215,7 @@ Route::get('/standard_admission_rule', [AdminController::class, 'customer_master
 
 
 Route::get('/admin/master/submission', [AdminController::class, 'master_submission'])->name("admin_master_submission_url");
+Route::get('/admin/phd/submission', [AdminController::class, 'phd_admin_submission'])->name("admin_phd_submission_url");
 
 Route::post('/admin/master/submission', [AdminController::class, 'add_master_submission'])->name('admin_master_submission_create_url');
 
