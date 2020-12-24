@@ -834,6 +834,32 @@ class AdminController extends Controller
 
         return redirect()->route('admin_bachelor_educational_url');
     }
+
+
+
+    public function send_message_to_user(Request  $request){
+        $message = $request->input('message');
+        $mobile = $request->input('mobile');
+        $encodeMessage = urlencode($message);
+        $authKey = '';
+        $senderId = '';
+        $route = 4;
+        $postData = $request->all();
+
+        $mobileNumber = implode('', $postData['mobile']);
+
+        $arr = str_split($mobileNumber, '11');
+        $mobiles = implode(",", $arr);
+//        print_r($mobiles);
+//        exit();
+        $data = array(
+            'authkey' => $authKey,
+            'mobiles' => $mobiles,
+            'message' => $encodeMessage,
+            'sender' => $senderId,
+            'route' => $route,
+        );
+    }
 }
 
 

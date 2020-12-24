@@ -241,3 +241,5 @@ Route::get('/admin/bachelor/educational/{id}/edit', [AdminController::class, 'ed
 Route::put('/admin/bachelor/educational/{id}/update', [AdminController::class, 'update_bachelor_educational'])->name('admin_bachelor_educational_update_url');
 
 Route::delete('/admin/bachelor/educational/delete/{id}', [AdminController::class, 'delete_bachelor_educational'])->name('admin_bachelor_educational_delete_url');
+
+Route::post('/admin/send_message_to_user/', [AdminController::class, 'send_message_to_user'])->name('send_to_user');

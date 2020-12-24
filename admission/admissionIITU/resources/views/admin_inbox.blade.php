@@ -459,40 +459,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <hr>
                             <table class="table table-fhr">
                                 <tbody>
-                                @foreach($messages as $mes)
-                                <tr class="unread checked">
-                                        <td class="hidden-xs">
-                                            <input type="checkbox" class="checkbox">
-                                        </td>
-                                        <td class="hidden-xs">
-                                            <i class="fa fa-star icon-state-warning"></i>
-                                        </td>
-                                        <td class="hidden-xs">{{ $mes->name }}</td>
-                                        <td>
-                                            {{$mes->message}}
-                                        </td>
-                                        <td>
-                                            {{$mes->phone}}
-                                        </td>
-                                        <td>
-                                            {{$mes->created_at}}
-                                        </td>
+{{--                                <form action="{{ route('send_to_user')}}" method="POST">--}}
+{{--                                    {{ csrf_field() }}--}}
+{{--                                    <div>--}}
+{{--                                    <textarea name="message" id="" cols="20" rows="3">--}}
 
-                                        <td>
-                                            <a href="{{route('admin_inbox_edit_url', $mes->id)}}">
-                                                <button type="button" style="margin-left: 10px; color: white; background-color: #212529" class="btn btn-secondary btn-sm" data-toggle="modal">Edit</button>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <form action="{{route('admin_inbox_delete_url', $mes->id)}}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit" style="margin-left: 10px;" class="btn btn-danger btn-sm" data-toggle="modal">Delete</button>
-                                            </form>
-                                        </td>
+{{--                                    </textarea>--}}
+{{--                                    </div>--}}
 
-                                </tr>
-                                @endforeach
+{{--                                    <div><button type="submit">Send message</button></div>--}}
+
+                                    @foreach($messages as $mes)
+                                        <tr class="unread checked">
+                                            <td class="hidden-xs">
+                                                <input type="checkbox" name="mobile[]" value="{{$mes->phone}}" class="checkbox">
+                                            </td>
+                                            <td class="hidden-xs">
+                                                <i class="fa fa-star icon-state-warning"></i>
+                                            </td>
+                                            <td class="hidden-xs">{{ $mes->name }}</td>
+                                            <td>
+                                                {{$mes->message}}
+                                            </td>
+                                            <td>
+                                                {{$mes->phone}}
+                                            </td>
+                                            <td>
+                                                {{$mes->created_at}}
+                                            </td>
+
+                                            <td>
+                                                <a href="{{route('admin_inbox_edit_url', $mes->id)}}">
+                                                    <button type="button" style="margin-left: 10px; color: white; background-color: #212529" class="btn btn-secondary btn-sm" data-toggle="modal">Edit</button>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <form action="{{route('admin_inbox_delete_url', $mes->id)}}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" style="margin-left: 10px;" class="btn btn-danger btn-sm" data-toggle="modal">Delete</button>
+                                                </form>
+                                            </td>
+
+                                        </tr>
+                                    @endforeach
+{{--                                </form>--}}
+
                                 </tbody>
 
 
