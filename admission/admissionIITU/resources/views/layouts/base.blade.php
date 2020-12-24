@@ -33,13 +33,6 @@
                         <li><a href="/bachelor">Bachelor</a></li>
                         <li><a href="/master">Master</a></li>
                         <li><a href="/phd">PHD</a></li>
-                        <li><a href="#">More</a>
-                            <ul class="dropdown">
-                                <li><a href="#">College</a></li>
-                                <li><a href="#">Distance Learning</a></li>
-
-                            </ul>
-                        </li>
                         @if( auth()->check() )
                             <li class="nav-item">
                                 <a class="nav-link font-weight-bold" href="#">Hi {{ auth()->user()->name }}</a>

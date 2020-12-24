@@ -34,11 +34,9 @@ Route::get('/schedule', function () {
     return view('schedule');
 });
 
+use App\Http\Controllers\AdminController;
 
-
-Route::get('/educational_program_bachelor', function () {
-    return view('edu_prog_bach');
-});
+Route::get('/educational_program_bachelor',[AdminController::class, 'bachelor_edu_prog'] );
 
 
 
@@ -47,7 +45,7 @@ Route::get('/documents_for_admission_phd', function () {
 });
 
 
-use App\Http\Controllers\AdminController;
+
 
 Route::get('/admission_for_pupils', [AdminController::class, 'admission_customer']);
 Route::get('/admission_for_bachelor', [AdminController::class, 'admission_bachelor']);

@@ -599,6 +599,11 @@ class AdminController extends Controller
 
     }
 
+    public function bachelor_edu_prog(){
+        $bachelor = BachelorEducationalProgram::all();
+        return view('edu_prog_bach',compact('bachelor'));
+    }
+
 
     public function master_standard_admission_rule(){
         $master = MasterStandardAdmission::all();

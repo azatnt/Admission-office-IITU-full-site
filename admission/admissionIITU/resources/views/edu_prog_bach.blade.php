@@ -35,55 +35,57 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">B010</th>
-                    <td>Computer Teacher Training</td>
-                    <td>Physics Teacher</td>
-                    <td>95</td>
-                </tr>
-                <tr>
-                    <th scope="row">B044</th>
-                    <td>Management and Administration</td>
-                    <td>Innovation Management</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <th scope="row">B042</th>
-                    <td>Journalism and Reporting</td>
-                    <td>Digital Journalism</td>
-                    <td>102</td>
-                </tr>
-                <tr>
-                    <th scope="row">B059</th>
-                    <td>Communications Technology</td>
-                    <td>Telecommunication System</td>
-                    <td>109</td>
-                </tr>
-                <tr>
-                    <th scope="row">B046</th>
-                    <td>Finance, economics insurance</td>
-                    <td>Financial Technology</td>
-                    <td>112</td>
-                </tr>
-                <tr>
-                    <th scope="row">B011</th>
-                    <td>Computer Science</td>
-                    <td>Computer Digitalization of Education</td>
-                    <td>105</td>
-                </tr>
-                <tr>
-                    <th scope="row">B057</th>
-                    <td>Information Technology</td>
-                    <td>CSSE</td>
-                    <td>115</td>
-                </tr>
-                <tr>
-                    <th scope="row">B058</th>
-                    <td>Information Security</td>
-                    <td>Computer Security</td>
-                    <td>119</td>
-                </tr>
-
+                @foreach($bachelor as $mes)
+                    <tr>
+                        {{--                    <th scope="row">1</th>--}}
+                        <td>{{$mes->code}}</td>
+                        <td>{{$mes->faculty}}</td>
+                        <td>{{$mes->name}}</td>
+                        <td>{{$mes->score}}</td>
+                    </tr>
+                    {{--                <tr>--}}
+                    {{--                    <th scope="row">2</th>--}}
+                    {{--                    <td>Information Security</td>--}}
+                    {{--                    <td>Komekbay Dinmukhammed</td>--}}
+                    {{--                    <td>87774372399</td>--}}
+                    {{--                </tr>--}}
+                    {{--                <tr>--}}
+                    {{--                    <th scope="row">3</th>--}}
+                    {{--                    <td>Management and Administration</td>--}}
+                    {{--                    <td>Umirzakov Madiyar</td>--}}
+                    {{--                    <td>87003213322</td>--}}
+                    {{--                </tr>--}}
+                    {{--                <tr>--}}
+                    {{--                    <th scope="row">4</th>--}}
+                    {{--                    <td>Physics Teacher Training</td>--}}
+                    {{--                    <td>Naimankhan Ayan</td>--}}
+                    {{--                    <td>87763217732</td>--}}
+                    {{--                </tr>--}}
+                    {{--                <tr>--}}
+                    {{--                    <th scope="row">5</th>--}}
+                    {{--                    <td>Journalism and Reporting</td>--}}
+                    {{--                    <td>Koldasov Nurlan</td>--}}
+                    {{--                    <td>87023411233</td>--}}
+                    {{--                </tr>--}}
+                    {{--                <tr>--}}
+                    {{--                    <th scope="row">6</th>--}}
+                    {{--                    <td>Communications Technology</td>--}}
+                    {{--                    <td>Baiturinov Asset</td>--}}
+                    {{--                    <td>87753479239</td>--}}
+                    {{--                </tr>--}}
+                    {{--                <tr>--}}
+                    {{--                    <th scope="row">7</th>--}}
+                    {{--                    <td>Finance, economics insurance</td>--}}
+                    {{--                    <td>Aymirza Kobylandi</td>--}}
+                    {{--                    <td>87774372371</td>--}}
+                    {{--                </tr>--}}
+                    {{--                <tr>--}}
+                    {{--                    <th scope="row">8</th>--}}
+                    {{--                    <td>Computer Science</td>--}}
+                    {{--                    <td>Shoibekov Daulet</td>--}}
+                    {{--                    <td>87713283211</td>--}}
+                    {{--                </tr>--}}
+                @endforeach
                 </tbody>
             </table>
         </div>
