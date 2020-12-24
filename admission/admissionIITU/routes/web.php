@@ -84,9 +84,7 @@ Route::post('/admin/inbox', [AdminController::class, 'store'])->name('admin_inbo
 
 //Route::resource('admin/inbox', [AdminController::class, 'edit']);
 
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin_url');
+Route::get('/admin', [AdminController::class, 'admin'])->name('admin_url');
 
 
 Route::get('/admin/inbox/{id}/edit', [AdminController::class, 'edit'])->name('admin_inbox_edit_url');

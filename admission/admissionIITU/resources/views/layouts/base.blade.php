@@ -37,6 +37,11 @@
                             <li class="nav-item">
                                 <a class="nav-link font-weight-bold" href="#">Hi {{ auth()->user()->name }}</a>
                             </li>
+                            @if(auth()->user()->isAdmin == true)
+                            <li>
+                                <a class="nav-link font-weight-bold" href="/admin">Admin</a>
+                            </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link" href="/logout">Log Out</a>
                             </li>

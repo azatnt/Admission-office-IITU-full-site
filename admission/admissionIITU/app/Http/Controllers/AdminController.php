@@ -28,6 +28,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\Reception;
+use Illuminate\View\View;
 
 
 class AdminController extends Controller
@@ -44,6 +45,13 @@ class AdminController extends Controller
 
         $contact ->save();
         return redirect()->route('admin_inbox_create_url')->with('success', 'Your message is created');
+    }
+
+    public function admin(){
+        if(auth()->user()==null || auth()->user()->isAdmin != true){
+            return View("403");
+        }
+        return View("admin");
     }
 
     public function edit($id){

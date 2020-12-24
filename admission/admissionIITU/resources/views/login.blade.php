@@ -2,10 +2,11 @@
 
 <style>
     body{
+        background: url(https://i.ytimg.com/vi/HLcf-OuSabE/maxresdefault.jpg) no-repeat;
+        background-size: cover;
         margin: 0;
         padding: 0;
         font-family: Beon;
-        background: #3d8fd1;
     }
     .box{
         width: 400px;
@@ -14,7 +15,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        background: #191919;
+        background: rgba(51,51,51,.9);
+        box-shadow: 0 5px 15px rgba(0,0,0,.5);
+
         text-align: center;
     }
     .box h1{
